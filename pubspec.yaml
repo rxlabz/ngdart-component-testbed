@@ -1,0 +1,25 @@
+name: xplor_ng_test_bed
+description: A Dart app that uses Angular 2
+version: 0.0.1
+environment:
+  sdk: '>=1.19.0 <2.0.0'
+dependencies:
+  angular2: '3.0.0-alpha'
+  angular2_components: '0.3.1-alpha'
+dev_dependencies:
+  browser: ^0.10.0
+  dart_to_js_script_rewriter: ^1.0.1
+  angular_test:
+    git: git://github.com/dart-lang/angular_test.git
+
+  test:
+  pageloader:
+  mockito:
+transformers:
+  - angular2/transform/codegen
+  - angular2/transform/reflection_remover:
+      $include:
+        - test/compo_test.dart
+  - test/pub_serve:
+      $include: test/**_test.dart
+
